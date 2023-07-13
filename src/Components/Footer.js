@@ -1,115 +1,77 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Button } from './Button';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 
-function Footer() {
+const EmailForm = ({ onClose }) => {
+    const [email, setEmail] = useState('');
+
+    const handleChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        console.log('Email:', email);
+        onClose();
+    };
+
     return (
-        <div className='footer-container'>
-            <section className='footer-subscription'>
-                <p className='footer-subscription-heading'>
-                    Contact
-                </p>
-                <p className='footer-subscription-text'>
-                    Don't be shy! Hit me up!
-                </p>
-                <div className='input-areas'>a
-                    <form>
-                        <input type='email' name='email' placeholder='Your Email' className='footer-input' />
-                        <Button buttonStyle='btn--outline'>Subscribe</Button>
-                    </form>
-                </div>
-            </section>
-            {/* <div className='footer-links'>
-                <div className='footer-link-wrapper'>
-                    <div className='footer-link-items'>
-                        <h2>About Us</h2>
-                        <Link to='/sign-up'>How it works</Link>
-                        <Link to='/'>Testimonials</Link>
-                        <Link to='/'>Careers</Link>
-                        <Link to='/'>Investors</Link>
-                        <Link to='/'>Terms of Service</Link>
-                    </div>
-                    <div class='footer-link-items'>
-                        <h2>Contact Us</h2>
-                        <Link to='/'>Contact</Link>
-                        <Link to='/'>Support</Link>
-                        <Link to='/'>Destinations</Link>
-                        <Link to='/'>Sponsorships</Link>
-                    </div>
-                </div>
-                <div className='footer-link-wrapper'>
-                    <div class='footer-link-items'>
-                        <h2>Videos</h2>
-                        <Link to='/'>Submit Video</Link>
-                        <Link to='/'>Ambassadors</Link>
-                        <Link to='/'>Agency</Link>
-                        <Link to='/'>Influencer</Link>
-                    </div>
-                    <div class='footer-link-items'>
-                        <h2>Social Media</h2>
-                        <Link to='/'>Instagram</Link>
-                        <Link to='/'>Facebook</Link>
-                        <Link to='/'>Youtube</Link>
-                        <Link to='/'>Twitter</Link>
-                    </div>
-                </div>
+        <div className="email-form-container">
+            <div className="email-form-content">
+                <h2>Email Form</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        placeholder="Email address"
+                        required
+                        value={email}
+                        onChange={handleChange}
+                    />
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                    <button type="submit">Send</button>
+                    <button type="button" className="cancel" onClick={onClose}>
+                        Cancel
+                    </button>
+                </form>
             </div>
-            <section class='social-media'>
-                <div class='social-media-wrap'>
-                    <div class='footer-logo'>
-                        <Link to='/' className='social-logo'>
-                            TRVL
-                            <i class='fab fa-typo3' />
-                        </Link>
-                    </div>
-                    <small class='website-rights'>TRVL © 2020</small>
-                    <div class='social-icons'>
-                        <Link
-                            class='social-icon-link facebook'
-                            to='/'
-                            target='_blank'
-                            aria-label='Facebook'
-                        >
-                            <i class='fab fa-facebook-f' />
-                        </Link>
-                        <Link
-                            class='social-icon-link instagram'
-                            to='/'
-                            target='_blank'
-                            aria-label='Instagram'
-                        >
-                            <i class='fab fa-instagram' />
-                        </Link>
-                        <Link
-                            class='social-icon-link youtube'
-                            to='/'
-                            target='_blank'
-                            aria-label='Youtube'
-                        >
-                            <i class='fab fa-youtube' />
-                        </Link>
-                        <Link
-                            class='social-icon-link twitter'
-                            to='/'
-                            target='_blank'
-                            aria-label='Twitter'
-                        >
-                            <i class='fab fa-twitter' />
-                        </Link>
-                        <Link
-                            class='social-icon-link twitter'
-                            to='/'
-                            target='_blank'
-                            aria-label='LinkedIn'
-                        >
-                            <i class='fab fa-linkedin' />
-                        </Link>
+        </div>
+    );
+};
+
+function Footer() {
+    const [isEmailFormOpen, setIsEmailFormOpen] = useState(false);
+
+    const toggleEmailForm = () => {
+        setIsEmailFormOpen(!isEmailFormOpen);
+    };
+
+    const handleCloseEmailForm = () => {
+        setIsEmailFormOpen(false);
+    };
+
+    return (
+        <div className="footer-container">
+            <section className="footer-subscription">
+                <p className="footer-subscription-heading">Contact</p>
+                <p className="footer-subscription-text">Don't be shy! Hit me up!</p>
+                <div className="input-areas">
+                    <button className="textbox-button" onClick={toggleEmailForm}>
+                        Email Me
+                    </button>
+                </div>
+            </section>
+
+            {isEmailFormOpen && (
+                <div className="email-form-popup">
+                    <div className="email-form-overlay" onClick={handleCloseEmailForm} />
+                    <div className="email-form-popup-content">
+                        <EmailForm onClose={handleCloseEmailForm} />
                     </div>
                 </div>
-                
-            </section>
-        */ }
+            )}
+
         </div>
     );
 }
