@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import CardItem from './CardItem';
 import './Cards.css';
 
@@ -16,25 +16,35 @@ function Cards() {
                 play video games, work on cars, play the saxophone, build robots, and collect records.<br></br>
             </p>
 
-            <br></br>
-            <br></br>
-            <br></br>
-
-
+            <br />
+            <br />
+            <br />
 
             <h1>PROJECTS</h1>
             <div className='cards__container'>
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
-                        <CardItem src='images/Skyline.png' text="Mobile ordering app for Skyline Chili" label='Skyline Chili App' path='https://github.com/TLT-1/SkylineChiliApp' />
-                        <CardItem src='images/travel.jpg' text='Travel booking destionation website' label='Travel Website' path='https://github.com/TLT-1/TravelWebsite' />
+                        <CardItem
+                            src='images/Skyline.png'
+                            text='Mobile ordering app for Skyline Chili'
+                            label='Skyline Chili App'
+                            path='https://github.com/TLT-1/SkylineChiliApp'
+                            description='This is a mobile ordering app for the restaurant Skyline Chili. This was a project made as a class assignment where me and two other students had to pick up new languages that we have never used and ship a product in under two months.'
+                            languages='Languages: XML, Java, Kotlin, Android Studio'
+                        />
+                        <CardItem
+                            src='images/travel.jpg'
+                            text='Travel booking destination website'
+                            label='Travel Website'
+                            path='https://github.com/TLT-1/TravelWebsite'
+                            description='This is a travel booking destination website. It was created as a final project for my Web Design and Development class at university.'
+                            languages='Languages: HTML, CSS, JavaScript, Bootstrap'
+                        />
                     </ul>
-                    
                 </div>
             </div>
         </div>
     );
-
 }
 
 export default Cards;

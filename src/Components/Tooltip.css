@@ -1,0 +1,38 @@
+.tooltip-container {
+    visibility: hidden;
+    width: 220px;
+    background-color: #1f98f4;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: -140%; /* Display the tooltip above the card */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+    .tooltip-container.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+
+.tooltip-content {
+    display: block;
+}
+
+    .tooltip-content h3 {
+        margin: 0 0 5px;
+        padding: 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .tooltip-content p {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
