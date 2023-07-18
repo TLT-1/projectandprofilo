@@ -13,14 +13,12 @@
     "react-scroll": "^1.8.9",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://tlt-1.github.io/project-profilio",
 
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
