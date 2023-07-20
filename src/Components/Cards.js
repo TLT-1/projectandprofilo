@@ -25,7 +25,7 @@ function Cards() {
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
                         <CardItem
-                            src='images/Skyline.png'
+                            src='images/img-4.jpg'
                             text='Mobile ordering app for Skyline Chili'
                             label='Skyline Chili App'
                             path='https://github.com/TLT-1/SkylineChiliApp'
@@ -33,7 +33,7 @@ function Cards() {
                             languages='Languages: XML, Java, Kotlin, Android Studio'
                         />
                         <CardItem
-                            src='images/travel.jpg'
+                            src='images/img-4.jpg'
                             text='Travel booking destination website'
                             label='Travel Website'
                             path='https://github.com/TLT-1/TravelWebsite'

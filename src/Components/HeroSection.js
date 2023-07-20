@@ -7,7 +7,7 @@ import './HeroSection.css';
 function HeroSection() {
     return (
         <div className='hero-container'>
-            <video src="/videos/codingvideo.mp4" autoPlay loop muted />
+            <video src="/videos/video-2.mp4" autoPlay loop muted />
             <h1>Software Developer</h1>
             <p> Hi, I'm Noah Marean. A passionate Software Developer</p>
             <p>based in the Orlando area.</p>
